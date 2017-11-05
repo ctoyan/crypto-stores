@@ -1,0 +1,35 @@
+{
+  "name": "crypto-corners",
+  "version": "1.0.0",
+  "description": "",
+  "main": "./src/index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "nodemon --exec 'babel-node' src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ctoyan/crypto-corners.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/ctoyan/crypto-corners/issues"
+  },
+  "homepage": "https://github.com/ctoyan/crypto-corners#readme",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.16.2",
+    "graphql-server-express": "^1.2.0",
+    "graphql-tools": "^2.7.2",
+    "sequelize": "^4.22.2"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.26.0",
+    "babel-preset-env": "^1.6.1",
+    "eslint": "^4.10.0",
+    "graphql": "^0.11.7",
+    "nodemon": "^1.12.1"
+  }
+}
