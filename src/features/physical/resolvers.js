@@ -1,7 +1,7 @@
-module.exports = {
+export default {
   Query: {
     hello: (root, args, context) => {
-            return 'Hello world!';
+      return 'Hello world!';
     },
   },
 };
