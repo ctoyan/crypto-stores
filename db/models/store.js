@@ -1,5 +1,5 @@
-module.exports = (sequelize, DataTypes) => {
-  const Store = sequelize.define('Store', {
+module.exports = function (sequelize, DataTypes) {
+  var Store = sequelize.define('Store', {
     name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -13,16 +13,28 @@ module.exports = (sequelize, DataTypes) => {
     phone: {
       type: DataTypes.STRING,
     },
-    store_type: {
+    storeType: {
       type: DataTypes.ENUM,
       allowNull: false,
       values: ['atm', 'physical', 'online'],
     },
+    isDeleted: {
+      type: DataTypes.BOOLEAN,
+      defaultValue: false,
+    },
   });
 
-  Store.associate = function(models) {
-    // associations can be defined here
-  }
+  Store.associate = function (models) {
+    // Store.hasMany(models.Comment);
+    // Store.hasMany(models.Location);
+    // Store.hasMany(models.Crypto);
+    Store.belongsTo(models.User, {
+      onDelete: "CASCADE",
+      foreignKey: {
+        allowNull: false
+      }
+    });
+  };
 
   return Store;
 };
