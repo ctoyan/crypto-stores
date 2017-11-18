@@ -1,5 +1,5 @@
-module.exports = function (sequelize, DataTypes) {
-  var Store = sequelize.define('Store', {
+export default (sequelize, DataTypes) => {
+  const Store = sequelize.define('Store', {
     name: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -24,16 +24,11 @@ module.exports = function (sequelize, DataTypes) {
     },
   });
 
-  Store.associate = function (models) {
-    // Store.hasMany(models.Comment);
+  Store.associate = (models) => {
+    Store.hasMany(models.Comment);
     // Store.hasMany(models.Location);
     // Store.hasMany(models.Crypto);
-    Store.belongsTo(models.User, {
-      onDelete: "CASCADE",
-      foreignKey: {
-        allowNull: false
-      }
-    });
+    Store.belongsTo(models.User);
   };
 
   return Store;
