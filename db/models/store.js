@@ -26,8 +26,8 @@ export default (sequelize, DataTypes) => {
 
   Store.associate = (models) => {
     Store.hasMany(models.Comment);
-    // Store.hasMany(models.Location);
-    // Store.hasMany(models.Crypto);
+    Store.hasMany(models.Location);
+    Store.hasMany(models.Crypto);
     Store.belongsTo(models.User);
   };
 
