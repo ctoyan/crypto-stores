@@ -1,5 +1,5 @@
 export default (sequelize, DataTypes) => {
-  const Crypto = sequelize.define('Location', {
+  const Crypto = sequelize.define('Crypto', {
     abbr: {
       type: DataTypes.STRING,
       allowNull: false,
@@ -11,7 +11,7 @@ export default (sequelize, DataTypes) => {
   });
 
   Crypto.associate = (models) => {
-    Crypto.belongsTo(models.Store);
+    Crypto.belongsToMany(models.Store, through: 'Store_Crypto', as: 'Store');
   };
 
   return Crypto;

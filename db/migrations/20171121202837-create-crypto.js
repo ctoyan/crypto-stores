@@ -14,21 +14,11 @@ export default {
         type: Sequelize.STRING,
         allowNull: false,
       },
-      storeId: {
-        type: Sequelize.INTEGER,
-        onDelete: 'CASCADE',
-        allowNull: false,
-        references: {
-          model: 'Stores',
-          key: 'id',
-        },
-      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE,
       },
       updatedAt: {
-        allowNull: false,
         type: Sequelize.DATE,
       }
     });

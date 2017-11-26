@@ -1,6 +1,6 @@
 export default {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.bulkInsert('Store', [{
+    return queryInterface.bulkInsert('Stores', [{
       name: 'John Doe store',
       description: 'mega kor',
       website: 'kor.com',
@@ -8,6 +8,7 @@ export default {
       storeType: 'online',
       isDeleted: false,
       userId: 1,
+      createdAt: '11-11-2011',
     }, {
       name: 'Jane Doe store',
       description: 'kor4e',
@@ -16,16 +17,18 @@ export default {
       storeType: 'physical',
       isDeleted: false,
       userId: 1,
+      createdAt: '11-11-2011',
     }, {
       name: 'Bai Ganio ATM',
       description: 'shema da ima bate',
       storeType: 'atm',
       isDeleted: false,
       userId: 2,
+      createdAt: '11-11-2011',
     }], {});
   },
 
   down: (queryInterface, Sequelize) => {
-    return queryInterface.bulkDelete('Store', null, {});
+    return queryInterface.bulkDelete('Stores', null, {});
   }
 };

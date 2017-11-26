@@ -28,7 +28,6 @@ export default {
         type: Sequelize.DATE,
       },
       updatedAt: {
-        allowNull: false,
         type: Sequelize.DATE,
       }
     });

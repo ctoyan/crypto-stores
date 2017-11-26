@@ -1,18 +1,11 @@
 export default {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.createTable('Comments', {
+    return queryInterface.createTable('Store_Crypto', {
       id: {
         allowNull: false,
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER,
-      },
-      title: {
-        type: Sequelize.STRING,
-      },
-      content: {
-        type: Sequelize.STRING,
-        allowNull: false,
       },
       storeId: {
         type: Sequelize.INTEGER,
@@ -23,29 +16,18 @@ export default {
           key: 'id',
         },
       },
-      userId: {
+      cryptoId: {
         type: Sequelize.INTEGER,
         onDelete: 'CASCADE',
         allowNull: false,
         references: {
-          model: 'Users',
+          model: 'Cryptos',
           key: 'id',
         },
       },
-      isDeleted: {
-        type: Sequelize.BOOLEAN,
-        defaultValue: false,
-      },
-      createdAt: {
-        allowNull: false,
-        type: Sequelize.DATE,
-      },
-      updatedAt: {
-        type: Sequelize.DATE,
-      }
     });
   },
   down: (queryInterface, Sequelize) => {
-    return queryInterface.dropTable('Comments');
+    return queryInterface.dropTable('Store_Crypto');
   }
 };
