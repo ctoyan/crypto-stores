@@ -9,6 +9,7 @@ export default {
       },
       lat: {
         type: Sequelize.STRING,
+        allowNull: false,
       },
       long: {
         type: Sequelize.STRING,

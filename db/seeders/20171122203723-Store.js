@@ -1,31 +1,21 @@
+import {DbSeeder} from '../db-utils'
+import * as C from '../db-const'
+
+const dbSeeder = new DbSeeder(C.ENTITY_SEED_LENGTH, {
+    'name:incr': 'Crypto Store',
+    'description:rand': ['Some awesome description here', null],
+    'website:rand': [ 'crypto.com', null ],
+    'phone:rand': ['0888 888 888', '0899 999 999', null],
+    'storeType:rand': ['online', 'physical', 'atm'],
+    'isDeleted': false,
+    'userId:id': null,
+    'createdAt': '11-11-2011',
+  })
+const stores = dbSeeder.generateEntities()
+
 export default {
   up: (queryInterface, Sequelize) => {
-    return queryInterface.bulkInsert('Stores', [{
-      name: 'John Doe store',
-      description: 'mega kor',
-      website: 'kor.com',
-      phone: '2123131213',
-      storeType: 'online',
-      isDeleted: false,
-      userId: 1,
-      createdAt: '11-11-2011',
-    }, {
-      name: 'Jane Doe store',
-      description: 'kor4e',
-      website: 'kor4ence.com',
-      phone: '212313121ciw1233',
-      storeType: 'physical',
-      isDeleted: false,
-      userId: 1,
-      createdAt: '11-11-2011',
-    }, {
-      name: 'Bai Ganio ATM',
-      description: 'shema da ima bate',
-      storeType: 'atm',
-      isDeleted: false,
-      userId: 2,
-      createdAt: '11-11-2011',
-    }], {});
+    return queryInterface.bulkInsert('Stores', stores, {});
   },
 
   down: (queryInterface, Sequelize) => {
